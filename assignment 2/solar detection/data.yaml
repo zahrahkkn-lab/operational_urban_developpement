@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['solar_panel']
+
+roboflow:
+  workspace: zahra-dhhfa
+  project: solar_detection-rzeik
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/zahra-dhhfa/solar_detection-rzeik/dataset/2
