@@ -27,6 +27,6 @@ The dataset used in this project was created and managed in **Roboflow**. It is 
 The primary goal of the project is to **detect solar panels in images** and (optionally) estimate their **spatial extent**. This dataset is appropriate because:
 - It is labeled specifically for **solar panels**, directly matching the target object class.
 - The use of **instance segmentation** aligns with goals beyond “presence/absence” detection—polygons allow estimating **panel area**, separating multiple arrays, and supporting more precise spatial analysis.
-- The dataset’s variability in rooftop scenes supports building a model that can generalize to different buildings and conditions, which is essential for reliable deployment and evaluation.
+- The dataset’s variability in rooftop scenes supports building a model that can generalize to different buildings and conditions, which is essential for reliable deployment and evaluation. 
 
 
