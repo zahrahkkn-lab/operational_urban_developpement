@@ -1,20 +1,19 @@
 ## Dataset description
 
 ### Data source
-The dataset used in this project was created and managed in **Roboflow**. It is a **custom image dataset** assembled for solar panel detection: images were collected from **[WRITE YOUR IMAGE SOURCE: e.g., aerial/orthophoto imagery, drone photos, rooftop photographs, Google Earth screenshots, etc.]**, then uploaded to a Roboflow public project. Each image was manually annotated in Roboflow using polygon labels to outline the exact area of solar panels.
+The dataset used in this project was created and managed in **Roboflow**. It is a **custom image dataset** assembled for solar panel detection: images were collected from **google**, then uploaded to a Roboflow public project. Each image was manually annotated in Roboflow using polygon labels to outline the exact area of solar panels.
 
 ### Type of data
 - **Modality:** RGB images (2D)
 - **Task type:** **Instance Segmentation** (polygon-based annotations)
-- **Classes:** `solar_panel` (and any other classes if you created them: **[LIST]**)
+- **Classes:** `solar_panel` 
 - **Annotation format:** polygon masks (exportable in formats such as COCO instance segmentation / YOLO segmentation depending on export settings)
 
 ### Dataset size and split
-- **Total images:** **[N_TOTAL]**
-- **Training images:** **[N_TRAIN]**
-- **Validation images:** **[N_VAL]**
-- **Test images:** **[N_TEST]**
-- **Number of annotations (instances):** **[N_INSTANCES]** (if available in Roboflow)
+- **Total images:** **8**
+- **Training images:** **18**
+- **Validation images:** **1**
+- **Test images:** **1**
 
 > Note: These counts are visible on the Roboflow dataset/version page after you create a dataset version and split the data.
 
