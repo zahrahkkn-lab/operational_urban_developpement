@@ -1,46 +1,53 @@
-Car Detection on a Short YouTube Clip (YOLOv8)
+## Dataset description
 
-This notebook demonstrates an end-to-end pipeline for detecting cars in a short segment of a YouTube video using Ultralytics YOLOv8.
+### Data source
+The data used in this project is derived from a **publicly available YouTube video**.
+A short video segment was downloaded using **yt-dlp** from a live/recorded traffic stream and used exclusively for **object detection inference**.
 
-Pipeline Overview
+The video contains real-world urban traffic scenes and does not include any private or sensitive data.  
+No manual annotation was performed, as detections are generated automatically using a pretrained model.
 
-Install dependencies
-Installs:
+---
 
-ultralytics for YOLOv8 inference
+### Type of data
+- **Modality:** RGB video frames (2D)
+- **Task type:** Object Detection
+- **Target class:** `car`
+- **Annotation format:**  
+  Bounding boxes generated automatically by a pretrained YOLOv8 model (COCO dataset)
 
-yt-dlp to download a short video segment from YouTube
+---
 
-opencv-python for video processing support
+### Dataset size and processing
+- **Input data:** One short video clip (5 seconds)
+- **Frame sampling:** Every 2nd frame (`vid_stride = 2`)
+- **Total processed frames:** Dependent on the original video frame rate
+- **Train / validation split:** Not applicable (inference-only workflow)
 
-Download a 5-second clip from YouTube
-Uses yt-dlp to fetch only a 5-second section (00:00–00:00:05) and saves it locally as live_clip.<ext> (typically .mp4, but the extension may vary depending on available formats).
+> Note: This project focuses on **model inference and visualization**, not on dataset creation or model training.
 
-Run YOLOv8 inference (cars only)
-Loads the pretrained model yolov8n.pt and runs object detection on the downloaded clip, filtering detections to cars only using:
+---
 
-classes=[2] (COCO class index for “car”)
+### Main characteristics of the dataset
 
-Inference configuration includes:
+1. **Real-world traffic scenes:**  
+   The video captures natural traffic conditions, including multiple vehicles, varying motion patterns, and complex backgrounds, reflecting realistic deployment scenarios.
 
-conf=0.30 (confidence threshold)
+2. **Automatic model-based annotations:**  
+   Bounding boxes are produced by a pretrained YOLOv8 model trained on the COCO dataset, eliminating the need for manual labeling.
 
-imgsz=480 (inference resolution)
+3. **Temporal continuity:**  
+   Unlike static images, video data preserves temporal information, allowing observation of detection consistency across consecutive frames.
 
-vid_stride=2 (process every 2nd frame for faster runtime)
+4. **Lightweight and reproducible setup:**  
+   The use of a short video clip and a lightweight model enables fast inference and easy reproduction of results.
 
-Save an annotated output video
-YOLO writes a processed video with bounding boxes to:
+---
 
-/content/yolo_live_cars/ (in Colab)
-
-or the configured project directory in other environments
-
-Display the processed video inline
-The notebook embeds the saved output video in the notebook interface for quick visual verification.
-
-Notes / Common Pitfalls
-
-The download step saves live_clip.<ext>, which may not always be live_clip.mp4. If the notebook hardcodes live_clip.mp4, it may fail when the downloaded format is different (e.g., .webm). A robust approach is to locate the downloaded file dynamically (e.g., using glob("live_clip.*")) and pass that path into YOLO.
-
-Although some comments may mention “60 seconds,” the code as written downloads 5 seconds.
+### Why this dataset is appropriate for the project goals
+The primary goal of this project is to **demonstrate video-based car detection using YOLOv8**.
+This dataset is appropriate because it:
+- Represents realistic urban traffic conditions
+- Enables rapid testing of pretrained object detection models
+- Provides clear visual feedback through annotated video output
+- Requires no manual annotation or dataset preprocessing
